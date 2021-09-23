@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Dto;
 
-use App\Infrastructure\Entity\Pessoa;
+use App\Infrastructure\Persistence\Pessoa;
 use App\Infrastructure\Exception\ContaArgumentException;
 use App\Infrastructure\Service\ContaAbstract;
 

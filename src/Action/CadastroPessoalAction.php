@@ -4,11 +4,12 @@ namespace App\Action;
 
 use App\Apresentation\CadastroPessoalView;
 use App\FuncionalidadeBundle\ActionAbastract;
-use App\Infrastructure\{Entity\Banco, Enum\TipoContaEnum, Types\Cpf};
+use App\Infrastructure\{Enum\TipoContaEnum, Persistence\Banco, Types\Cpf};
 use App\Infrastructure\Dto\{ContaCorrenteDto, ContaPoupancaDto, PessoaDto};
 use App\Infrastructure\Factory\{Conta\Corrente\CorrenteConcrete,
     Conta\Poupanca\PoupancaConcrete,
-    Pessoa\PessoaCreatorAbstract};
+    Pessoa\PessoaCreatorAbstract
+};
 
 class CadastroPessoalAction extends ActionAbastract
 {

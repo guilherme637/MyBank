@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Infrastructure\Service;
 
 use App\Domain\Entity\ContaInterface;
-use App\Infrastructure\Entity\Pessoa;
+use App\Infrastructure\Persistence\Pessoa;
 
 abstract class ContaAbstract implements ContaInterface
 {

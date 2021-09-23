@@ -1,6 +1,6 @@
 <?php
 
-use App\Infrastructure\Entity\Cpf;
+use App\Infrastructure\Persistence\Cpf;
 use PHPUnit\Framework\TestCase;
 
 class CpfTest extends TestCase

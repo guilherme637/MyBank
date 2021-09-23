@@ -1,8 +1,7 @@
 <?php
 
-use App\Infrastructure\Entity\Cpf;
-use App\Infrastructure\Entity\Pessoa;
-use App\Infrastructure\Exception\CpfException;
+use App\Infrastructure\Persistence\Cpf;
+use App\Infrastructure\Persistence\Pessoa;
 use App\Infrastructure\Exception\PessoaArgumentException;
 use PHPUnit\Framework\TestCase;
 

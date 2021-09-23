@@ -2,9 +2,14 @@
 
 namespace App\Domain\Repository;
 
-interface ContaRepository
-{
-    public function find();
+use Ds\Map;
+use phpDocumentor\Reflection\Types\Collection;
 
-    public function findBy();
+interface RepositoryInterface
+{
+    public function findAll(): Map;
+
+    public function find(int $id): Map;
+
+    public function findBy(array $condition): Map;
 }

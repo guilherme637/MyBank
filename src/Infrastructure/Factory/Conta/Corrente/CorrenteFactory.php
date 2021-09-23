@@ -3,7 +3,7 @@
 namespace App\Infrastructure\Factory\Conta\Corrente;
 
 use App\Domain\Factory\ContaFactoryInterface;
-use App\Infrastructure\Entity\ContaCorrente;
+use App\Infrastructure\Persistence\ContaCorrente;
 use App\Infrastructure\Factory\Conta\CreatorAbstract;
 use App\Infrastructure\Service\ContaAbstract;
 

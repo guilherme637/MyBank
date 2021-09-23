@@ -6,26 +6,44 @@ use App\Apresentation\CadastroPessoalView;
 use App\Apresentation\IndexView;
 use App\Apresentation\LoginView;
 use App\FuncionalidadeBundle\ActionAbastract;
-use App\Infrastructure\Entity\Banco;
+use App\Infrastructure\Persistence\Banco;
 use App\Infrastructure\Factory\Pessoa\PessoaConcrete;
+use App\Infrastructure\Persistence\Repository\ContaRepository;
+use App\Infrastructure\Persistence\Repository\UserRepository;
 
 class IndexAction extends ActionAbastract
 {
-    private Banco $myBank;
     private IndexView $indexView;
 
+    private ContaRepository $contaRepository;
+
+    private UserRepository $userRepository;
+
     public function __construct(
-      Banco $myBank,
-      IndexView $indexView
+        IndexView $indexView,
+        ContaRepository $contaRepository,
+        UserRepository $userRepository
     ) {
-        $this->myBank = $myBank;
         $this->indexView = $indexView;
+        $this->contaRepository = $contaRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function __invoke(
         CadastroPessoalAction $cadastroPessoalAction,
         LoginAction $loginAction
     ) {
+        do {
+            if(empty($this->userRepository->findAll())) {
+                $this->indexView->write('Deseja se cadastrar ?: ');
+                $teste = $this->indexView->read();
+
+                if ($this->indexView->read() == 1) {
+                    $loginAction(new LoginView());
+                }
+            }
+        } while (0 != $this->setOption((int)$this->indexView->read()));
+
 
         $this->indexView->wTitulo('Sistema de Banco');
         $this->indexView->rTitulo();
@@ -37,7 +55,7 @@ class IndexAction extends ActionAbastract
         switch ($this->getOption()) {
             case 1:
                 $cadastroPessoalAction(
-                    $this->myBank,
+                    $this->em,
                     new CadastroPessoalView(),
                     new PessoaConcrete()
                 );
@@ -46,7 +64,6 @@ class IndexAction extends ActionAbastract
                 $loginAction(new LoginView());
                 break;
             case 3:
-                print_r($this->myBank->teste());
         }
 
     }

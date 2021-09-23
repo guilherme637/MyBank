@@ -2,7 +2,7 @@
 
 namespace App\Domain\Entity;
 
-use App\Infrastructure\Entity\Pessoa;
+use App\Infrastructure\Persistence\Pessoa;
 
 interface PessoaInterface
 {

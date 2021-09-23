@@ -3,7 +3,7 @@
 namespace App\Infrastructure\Factory\Conta\Poupanca;
 
 use App\Domain\Factory\ContaFactoryInterface;
-use App\Infrastructure\Entity\ContaPoupaca;
+use App\Infrastructure\Persistence\ContaPoupaca;
 use App\Infrastructure\Factory\Conta\CreatorAbstract;
 use App\Infrastructure\Service\ContaAbstract;
 

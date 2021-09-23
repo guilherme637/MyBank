@@ -2,9 +2,10 @@
 
 namespace App\Infrastructure\Entity;
 
+use App\Domain\Entity\UserInteraface;
 use App\Infrastructure\Types\Cpf;
 
-class User
+class User implements UserInteraface
 {
     /**
      * @var Cpf
@@ -22,18 +23,12 @@ class User
         $this->senha = $senha;
     }
 
-    /**
-     * @return Cpf
-     */
-    public function getCpf(): Cpf
+    public function getUsername(): int
     {
-        return $this->cpf;
+        return $this->cpf->mostraNumero();
     }
 
-    /**
-     * @return string
-     */
-    public function getSenha(): string
+    public function getPassword(): int
     {
         return $this->senha;
     }

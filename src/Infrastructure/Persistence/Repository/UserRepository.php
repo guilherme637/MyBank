@@ -2,14 +2,13 @@
 
 namespace App\Infrastructure\Persistence\Repository;
 
-use App\Infrastructure\Service\ContaAbstract;
+use App\Infrastructure\Service\RepositoryAbstract;
+use Ds\Map;
 
-class UserRepository extends \App\Infrastructure\Service\RepositoryAbstract implements
-    \App\Domain\Factory\ContaFactoryInterface
+class UserRepository extends RepositoryAbstract
 {
-
-    public function createConta(): ContaAbstract
+    public function __construct(Map $tipo)
     {
-        // TODO: Implement createConta() method.
+        parent::__construct($tipo);
     }
 }

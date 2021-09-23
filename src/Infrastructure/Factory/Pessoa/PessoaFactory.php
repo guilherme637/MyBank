@@ -3,8 +3,8 @@
 namespace App\Infrastructure\Factory\Pessoa;
 
 use App\Domain\Entity\PessoaInterface;
+use App\Infrastructure\Persistence\Pessoa;
 use App\Infrastructure\Dto\PessoaDto;
-use App\Infrastructure\Entity\Pessoa;
 
 class PessoaFactory implements PessoaInterface
 {

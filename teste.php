@@ -4,11 +4,15 @@ use App\Action\CadastroPessoalAction;
 use App\Action\IndexAction;
 use App\Action\LoginAction;
 use App\Apresentation\IndexView;
-use App\Infrastructure\Entity\Banco;
+use App\Infrastructure\Persistence\Banco;
+use App\Infrastructure\Persistence\Repository\ContaRepository;
+use App\Infrastructure\Persistence\Repository\UserRepository;
 
 require_once 'vendor/autoload.php';
 
-$index = new IndexAction(new Banco(), new IndexView);
+$em = new Banco();
+
+$index = new IndexAction(new IndexView(), new ContaRepository($em->getConta()), new UserRepository($em->getUser()));
 $opacao = '';
 
 do {
